@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "companyName": "TechNova",
+    "industry": "AI",
+    "investmentRequired": 500000,
+    "roi": 18,
+    "risk": "Medium",
+    "fundingRaised": 320000,
+    "investors": 12,
+    "description": "AI-powered analytics platform",
+    "logo": "/logos/technova.png"
+  },
+  {
+    "id": 2,
+    "companyName": "GreenEnergy",
+    "industry": "Energy",
+    "investmentRequired": 900000,
+    "roi": 24,
+    "risk": "High",
+    "fundingRaised": 600000,
+    "investors": 20,
+    "description": "Renewable energy startup",
+    "logo": "/logos/green.png"
+  },
+  {
+    "id": 3,
+    "companyName": "popaya",
+    "industry": "ML",
+    "investmentRequired": 5000000,
+    "roi": 18,
+    "risk": "Medium",
+    "fundingRaised": 3200000,
+    "investors": 12,
+    "description": "AI-powered analytics platform",
+    "logo": "/logos/technova.png"
+  },
+  {
+    "id": 4,
+    "companyName": "fake",
+    "industry": "tnergy",
+    "investmentRequired": 900000,
+    "roi": 24,
+    "risk": "High",
+    "fundingRaised": 600000,
+    "investors": 20,
+    "description": "Renewable energy startup",
+    "logo": "/logos/green.png"
+  }
+]
