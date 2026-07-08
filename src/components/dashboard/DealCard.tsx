@@ -31,12 +31,13 @@ const currency = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
   maximumFractionDigits: 0,
+  notation: "compact",
 });
 
 const riskColors = {
-  Low: "bg-green-100 text-green-700",
-  Medium: "bg-yellow-100 text-yellow-700",
-  High: "bg-red-100 text-red-700",
+  Low: "bg-green-50 text-green-700 ring-1 ring-green-200",
+  Medium: "bg-yellow-50 text-yellow-700 ring-1 ring-yellow-200",
+  High: "bg-red-50 text-red-700 ring-1 ring-red-200",
 };
 
 export default function DealCard({ deal }: DealCardProps) {
@@ -45,7 +46,7 @@ export default function DealCard({ deal }: DealCardProps) {
       variants={{
         hidden: {
           opacity: 0,
-          y: 20,
+          y: 16,
         },
 
         visible: {
@@ -54,29 +55,31 @@ export default function DealCard({ deal }: DealCardProps) {
         },
       }}
       whileHover={{
-        y: -8,
-        scale: 1.02,
+        y: -4,
+        scale: 1.01,
       }}
       transition={{
-        duration: 0.25,
+        duration: 0.2,
       }}
-      className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 hover:shadow-xl"
+      className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-lg"
     >
       {/* Header */}
 
-      <div className="bg-gradient-to-r from-[#1E2A5E] via-[#273C75] to-[#0B1220] p-6 text-white">
-        <div className="flex items-start justify-between">
-          <div>
-            <h2 className="text-2xl font-bold">{deal.companyName}</h2>
+      <div className="bg-gradient-to-r from-[#1E2A5E] via-[#273C75] to-[#0B1220] p-4 text-white">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <h2 className="truncate text-base font-semibold">
+              {deal.companyName}
+            </h2>
 
-            <div className="mt-2 flex items-center gap-2 text-blue-100">
-              <Building2 size={16} />
-              {deal.industry}
+            <div className="mt-1.5 flex items-center gap-1.5 text-xs text-blue-100">
+              <Building2 size={13} />
+              <span className="truncate">{deal.industry}</span>
             </div>
           </div>
 
           <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${riskColors[deal.risk]}`}
+            className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${riskColors[deal.risk]}`}
           >
             {deal.risk}
           </span>
@@ -85,62 +88,66 @@ export default function DealCard({ deal }: DealCardProps) {
 
       {/* Body */}
 
-      <div className="space-y-5 p-6">
-        {/* Investment */}
+      <div className="flex flex-1 flex-col justify-between gap-3 p-4">
+        <div className="space-y-2.5">
+          {/* Investment */}
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-slate-500">
-            <IndianRupee size={18} />
-            Investment
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <IndianRupee size={14} />
+              Investment
+            </div>
+
+            <span className="font-semibold text-slate-800">
+              {currency.format(deal.investmentRequired)}
+            </span>
           </div>
 
-          <span className="font-bold">
-            {currency.format(deal.investmentRequired)}
-          </span>
-        </div>
+          {/* Funding */}
 
-        {/* Funding */}
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <TrendingUp size={14} />
+              Raised
+            </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-slate-500">
-            <TrendingUp size={18} />
-            Raised
+            <span className="font-semibold text-green-600">
+              {deal.fundingRaised ? currency.format(deal.fundingRaised) : "N/A"}
+            </span>
           </div>
 
-          <span className="font-bold text-green-600">
-            {deal.fundingRaised ? currency.format(deal.fundingRaised) : "N/A"}
-          </span>
-        </div>
+          {/* Investors */}
 
-        {/* Investors */}
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <Users size={14} />
+              Investors
+            </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-slate-500">
-            <Users size={18} />
-            Investors
+            <span className="font-semibold text-slate-800">
+              {deal.investors ?? "—"}
+            </span>
           </div>
 
-          <span className="font-bold">{deal.investors}</span>
-        </div>
+          {/* ROI */}
 
-        {/* ROI */}
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <ShieldAlert size={14} />
+              ROI
+            </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-slate-500">
-            <ShieldAlert size={18} />
-            ROI
+            <span className="font-semibold text-emerald-600">{deal.roi}%</span>
           </div>
 
-          <span className="font-bold text-emerald-600">{deal.roi}%</span>
+          {/* Description */}
+
+          {deal.description && (
+            <p className="line-clamp-2 pt-1 text-xs leading-5 text-slate-500">
+              {deal.description}
+            </p>
+          )}
         </div>
-
-        {/* Description */}
-
-        {deal.description && (
-          <p className="line-clamp-2 text-sm leading-6 text-slate-500">
-            {deal.description}
-          </p>
-        )}
 
         {/* Button */}
 
@@ -149,10 +156,10 @@ export default function DealCard({ deal }: DealCardProps) {
             whileTap={{
               scale: 0.97,
             }}
-            className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1E2A5E] py-3 font-semibold text-white transition hover:bg-[#111827]"
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#1E2A5E] py-2.5 text-sm font-semibold text-white transition hover:bg-[#111827]"
           >
             View Details
-            <ArrowRight size={18} />
+            <ArrowRight size={15} />
           </motion.button>
         </Link>
       </div>

@@ -34,22 +34,24 @@ export default function DealExplorer({
 }: DealExplorerProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35 }}
-      className="mb-8 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+      transition={{ duration: 0.3 }}
+      className="mb-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
     >
       {/* Header */}
 
-      <div className="mb-6 flex items-center gap-3">
-        <div className="rounded-xl bg-blue-100 p-3">
-          <SlidersHorizontal className="text-blue-600" size={20} />
+      <div className="mb-5 flex items-center gap-2.5">
+        <div className="rounded-lg bg-blue-50 p-2.5">
+          <SlidersHorizontal className="text-blue-600" size={17} />
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">Deal Explorer</h2>
+          <h2 className="text-base font-semibold text-slate-900">
+            Deal Explorer
+          </h2>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-xs text-slate-500">
             Search, filter and sort investment opportunities.
           </p>
         </div>
@@ -57,13 +59,13 @@ export default function DealExplorer({
 
       {/* Controls */}
 
-      <div className="grid gap-4 lg:grid-cols-4">
+      <div className="grid gap-3 lg:grid-cols-4">
         {/* Search */}
 
         <div className="relative lg:col-span-2">
           <Search
-            className="absolute left-4 top-3.5 text-slate-400"
-            size={18}
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+            size={16}
           />
 
           <input
@@ -71,7 +73,7 @@ export default function DealExplorer({
             value={search}
             placeholder="Search company..."
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 py-3 pl-11 pr-4 outline-none transition focus:border-blue-600"
+            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
           />
         </div>
 
@@ -80,7 +82,7 @@ export default function DealExplorer({
         <select
           value={industry}
           onChange={(e) => setIndustry(e.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-600"
+          className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
         >
           <option value="All">All Industries</option>
 
@@ -98,7 +100,7 @@ export default function DealExplorer({
         <select
           value={risk}
           onChange={(e) => setRisk(e.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-600"
+          className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
         >
           <option value="All">All Risk Levels</option>
 
@@ -112,8 +114,8 @@ export default function DealExplorer({
 
       {/* Bottom */}
 
-      <div className="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div className="text-sm text-slate-500">
+      <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="text-xs text-slate-500">
           Showing{" "}
           <span className="font-semibold text-slate-900">{filteredDeals}</span>{" "}
           of <span className="font-semibold text-slate-900">{totalDeals}</span>{" "}
@@ -123,7 +125,7 @@ export default function DealExplorer({
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-600"
+          className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
         >
           <option value="None">Sort By</option>
 

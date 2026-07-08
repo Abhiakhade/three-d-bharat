@@ -19,7 +19,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.06,
     },
   },
 };
@@ -27,8 +27,8 @@ const containerVariants = {
 export default function DealGrid({ deals = [], loading }: DealGridProps) {
   if (loading) {
     return (
-      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {Array.from({ length: 6 }).map((_, index) => (
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, index) => (
           <LoadingSkeleton key={index} />
         ))}
       </div>
@@ -44,7 +44,7 @@ export default function DealGrid({ deals = [], loading }: DealGridProps) {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+      className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       {deals.map((deal) => (
         <DealCard key={deal.id} deal={deal} />

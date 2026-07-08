@@ -1,176 +1,107 @@
-# 🚀 Investor Dashboard
+# Investor Dashboard
 
-A modern **Investor Dashboard** built with **Next.js 16**, **TypeScript**, **Redux Toolkit**, **Tailwind CSS**, **Framer Motion**, and **Recharts**.
-
-Designed for investment management with a clean UI, interactive charts, filtering, search, pagination, and analytics.
+A modern **Investor Dashboard** developed as part of the **3D Bharat Assignment**. The application helps investors explore investment opportunities, analyze startup performance, and monitor key business metrics through an interactive and responsive dashboard.
 
 ---
 
-## 📸 Screenshots
+## Project Overview
 
-### 🏠 Dashboard
+The Investor Dashboard provides a clean and user-friendly interface for viewing startup investment opportunities. Users can search, filter, sort, and analyze investment data using interactive charts and detailed company information.
 
-![Dashboard](./screenshots/dashboard.png)
-
----
-
-### 📊 Analytics
-
-![Analytics](./screenshots/analytics.png)
+The project focuses on reusable components, responsive design, smooth animations, and clean architecture using modern React and Next.js practices.
 
 ---
 
-### 📈 Investment Trend
-
-![Investment Trend](./screenshots/investment-trend.png)
-
----
-
-### 🥧 Industry Distribution
-
-![Industry](./screenshots/industry.png)
-
----
-
-### 📋 Deal Details
-
-![Deal Details](./screenshots/deal-details.png)
-
----
-
-## ✨ Features
+## Features
 
 ### Dashboard
 
-- Modern responsive UI
-- Sidebar navigation
-- Animated Hero Section
-- Summary KPI Cards
-- Search Deals
+- Interactive Investor Dashboard
+- Responsive Sidebar Navigation
+- Dashboard Summary Cards
+- Search Investment Deals
 - Filter by Industry
-- Filter by Risk
+- Filter by Risk Level
 - Sort by ROI
-- Sort by Investment
+- Sort by Investment Amount
 - Pagination
-- Recommendation Section
-- Recent Activity
+- Recommended Investment Section
+- Recent Activity Panel
 - Loading Skeleton
-- Empty State
+- Empty State UI
 
 ---
 
-### Analytics
+### Investment Analytics
 
-- Investment Trend
-- Industry Distribution
-- Risk Distribution
-- ROI Leaderboard
-- Total Investment
+- Total Investment Overview
 - Average ROI
+- Active Deals
 - Total Investors
-- Active Deals
+- Investment Trend Chart
+- Industry Distribution Chart
+- Risk Distribution Chart
+- ROI Leaderboard
 
 ---
-
-### Deals
-
-- Investment Cards
-- Funding Information
-- ROI
-- Risk Badge
-- Company Details
-- View Details Page
-
----
-
-## 🛠 Tech Stack
-
-| Technology | Usage |
-|------------|-------|
-| Next.js 16 | Framework |
-| React 19 | UI |
-| TypeScript | Type Safety |
-| Tailwind CSS | Styling |
-| Redux Toolkit | State Management |
-| Framer Motion | Animations |
-| Recharts | Charts |
-| React Hook Form | Forms |
-| Zod | Validation |
-| Lucide React | Icons |
-
----
-
-## 📁 Folder Structure
-
-```text
-app
-│
-├── analytics
-├── deals
-│   └── [id]
-├── dashboard
-├── investment
-│
-├── layout.tsx
-├── page.tsx
-└── globals.css
-
-src
-│
-├── components
-│   ├── analytics
-│   ├── charts
-│   ├── common
-│   ├── dashboard
-│   ├── layout
-│   └── providers
-│
-├── data
-│
-├── hooks
-│
-├── services
-│
-├── store
-│
-└── types
-```
-
----
-
-## 📊 Dashboard Overview
-
-### Summary Cards
-
-- Total Investment
-- Average ROI
-- Active Deals
-- High Risk Deals
-
-### Charts
-
-- Investment Trend
-- Industry Performance
-- Risk Distribution
 
 ### Deal Management
 
-- Search
-- Filters
-- Sorting
-- Pagination
+- Company Information
+- Investment Required
+- Funding Raised
+- ROI
+- Risk Analysis
+- Investor Count
+- Company Description
 
 ---
 
-## 🚀 Installation
+## Technologies Used
 
-Clone repository
+### Frontend
+
+- Next.js 16
+- React 19
+- TypeScript
+
+### State Management
+
+- Redux Toolkit
+- React Redux
+
+### Styling
+
+- Tailwind CSS
+
+### Animation
+
+- Framer Motion
+
+### Charts
+
+- Recharts
+
+### Forms & Validation
+
+- React Hook Form
+- Zod
+
+### Icons
+
+- Lucide React
+- React Icons
+
+
+## Installation
+
+Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/investor-dashboard.git
+git clone https://github.com/your-username/investor-dashboard.git
 ```
 
-Go inside project
+Navigate into the project
 
 ```bash
 cd investor-dashboard
@@ -182,13 +113,13 @@ Install dependencies
 npm install
 ```
 
-Run development server
+Start the development server
 
 ```bash
 npm run dev
 ```
 
-Open
+Open the browser
 
 ```
 http://localhost:3000
@@ -196,81 +127,138 @@ http://localhost:3000
 
 ---
 
-## 📈 Analytics Included
+## Build Project
 
-✔ Investment Trend
-
-✔ Industry Distribution
-
-✔ Risk Distribution
-
-✔ ROI Leaderboard
-
-✔ KPI Cards
-
----
-
-## 🎨 UI Features
-
-- Responsive Design
-- Smooth Animations
-- Professional Dashboard
-- Clean Typography
-- Reusable Components
-- Mobile Friendly
-
----
-
-## 📦 Main Libraries
-
-```json
-{
-  "next": "16",
-  "react": "19",
-  "@reduxjs/toolkit": "2",
-  "tailwindcss": "4",
-  "framer-motion": "12",
-  "recharts": "3"
-}
+```bash
+npm run build
 ```
 
 ---
 
-## 🔥 Future Improvements
+## Production
 
-- Authentication
+```bash
+npm start
+```
+
+---
+
+## Screenshots
+
+### Dashboard
+
+> Add a screenshot here
+
+```
+screenshots/dashboard.png
+```
+
+---
+
+### Analytics
+
+> Add a screenshot here
+
+```
+screenshots/analytics.png
+```
+
+---
+
+### Deal Details
+
+> Add a screenshot here
+
+```
+screenshots/deal-details.png
+```
+
+---
+
+### Investment Charts
+
+> Add a screenshot here
+
+```
+screenshots/charts.png
+```
+
+---
+
+## Dashboard Modules
+
+### Dashboard
+
+- Summary Cards
+- Recommended Deals
+- Recent Activity
+- Deal Explorer
+- Deal Grid
+- Pagination
+
+### Analytics
+
+- Investment Trend
+- Industry Performance
+- Risk Distribution
+- ROI Leaderboard
+
+### Deals
+
+- Company Overview
+- Investment Information
+- Funding Details
+- Risk Details
+
+---
+
+## Performance Optimizations
+
+- Component-based architecture
+- Reusable UI components
+- TypeScript for type safety
+- Optimized rendering using React hooks
+- Responsive layouts
+- Clean folder structure
+
+---
+
+## Future Enhancements
+
+- User Authentication
 - Dark Mode
 - Notifications
-- Export PDF
-- Export Excel
-- Real API Integration
+- Export Reports (PDF & Excel)
+- API Integration
+- Real-time Dashboard
 - User Profile
-- Admin Panel
-- Settings
-- Real-time Charts
+- Settings Page
 
 ---
 
-## 🌐 Live Demo
+## Assignment Objectives Covered
 
-https://your-vercel-url.vercel.app
-
----
-
-## 👨‍💻 Author
-
-**Abhi Akhade**
-
-GitHub
-
-https://github.com/yourusername
-
-LinkedIn
-
-https://linkedin.com/in/yourprofile
+- Responsive Dashboard
+- Modern UI/UX
+- Component-based Architecture
+- State Management
+- Charts & Data Visualization
+- Search, Filter & Sort
+- Pagination
+- Reusable Components
+- TypeScript
+- Clean Code Structure
 
 ---
 
-## ⭐ Support
+## Live Demo
 
-If you found this project helpful, please consider giving it a ⭐ on GitHub.
+**Vercel**
+
+https://3dbharat.vercel.app/
+
+
+## Author
+
+**Abhijit Akhade**
+

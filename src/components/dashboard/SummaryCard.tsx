@@ -8,7 +8,6 @@ import {
   IndianRupee,
   type LucideIcon,
 } from "lucide-react";
-import StatCard from "@/src/components/common/StatCard";
 
 interface SummaryCardsProps {
   loading: boolean;
@@ -43,6 +42,7 @@ const currency = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
   maximumFractionDigits: 0,
+  notation: "compact",
 });
 
 interface CardProps {
@@ -56,21 +56,21 @@ function Card({ icon: Icon, tone, title, value }: CardProps) {
   return (
     <motion.div
       whileHover={{
-        y: -6,
-        scale: 1.02,
+        y: -3,
+        scale: 1.01,
       }}
-      transition={{ duration: 0.25 }}
-      className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg"
+      transition={{ duration: 0.2 }}
+      className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-md"
     >
       <div
-        className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${toneStyles[tone].bg}`}
+        className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${toneStyles[tone].bg}`}
       >
-        <Icon size={24} className={toneStyles[tone].icon} />
+        <Icon size={19} className={toneStyles[tone].icon} />
       </div>
 
-      <p className="mt-5 text-sm text-slate-500">{title}</p>
+      <p className="mt-4 text-xs font-medium text-slate-500">{title}</p>
 
-      <h2 className="mt-2 text-3xl font-bold text-slate-900">{value}</h2>
+      <h2 className="mt-1 text-xl font-bold text-slate-900">{value}</h2>
     </motion.div>
   );
 }
@@ -83,37 +83,33 @@ export default function SummaryCards({
   highRiskDeals,
 }: SummaryCardsProps) {
   return (
-    <div className="mb-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-      <StatCard
+    <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <Card
         title="Total Investment"
-        value={loading ? "..." : currency.format(totalInvestment)}
+        value={loading ? "…" : currency.format(totalInvestment)}
         icon={IndianRupee}
-        bgColor="bg-green-100"
-        iconColor="text-green-600"
+        tone="green"
       />
 
-      <StatCard
+      <Card
         title="Average ROI"
-        value={loading ? "..." : `${averageROI}%`}
+        value={loading ? "…" : `${averageROI}%`}
         icon={TrendingUp}
-        bgColor="bg-blue-100"
-        iconColor="text-blue-600"
+        tone="blue"
       />
 
-      <StatCard
+      <Card
         title="Active Deals"
-        value={loading ? "..." : activeDeals}
+        value={loading ? "…" : activeDeals}
         icon={Building2}
-        bgColor="bg-purple-100"
-        iconColor="text-purple-600"
+        tone="purple"
       />
 
-      <StatCard
+      <Card
         title="High Risk"
-        value={loading ? "..." : highRiskDeals}
+        value={loading ? "…" : highRiskDeals}
         icon={ShieldAlert}
-        bgColor="bg-red-100"
-        iconColor="text-red-600"
+        tone="amber"
       />
     </div>
   );
